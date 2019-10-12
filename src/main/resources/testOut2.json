@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Jan",
+    "lastName": "Kowalski",
+    "salary": "6000",
+    "age": "30",
+    "sex": "Male"
+  },
+  {
+    "name": "Jan",
+    "lastName": "Nowak",
+    "salary": "7000",
+    "age": "40",
+    "sex": "Male"
+  },
+  {
+    "name": "Ewa",
+    "lastName": "Kaczmarek",
+    "salary": "10000",
+    "age": "30",
+    "sex": "Female"
+  }
+]
