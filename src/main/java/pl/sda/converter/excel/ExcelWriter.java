@@ -6,6 +6,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import pl.sda.converter.SDAFileWriter;
+import pl.sda.converter.exceptions.FileConverterException;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -54,9 +55,9 @@ public class ExcelWriter implements SDAFileWriter {
             workbook.write(fileOutputStream);
             fileOutputStream.close();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            throw new FileConverterException("Nie odnaleziono pliku", e);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new FileConverterException("Błąd podczas generowania pliku", e);
         }
     }
 }

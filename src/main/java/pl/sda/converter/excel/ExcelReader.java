@@ -3,6 +3,7 @@ package pl.sda.converter.excel;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import pl.sda.converter.SDAFileReader;
+import pl.sda.converter.exceptions.FileConverterException;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,7 +14,7 @@ import java.util.*;
 public class ExcelReader implements SDAFileReader {
 
     @Override
-    public List<Map<String, Object>>read(String filePath) {
+    public List<Map<String, Object>> read(String filePath) {
 
         List<Map<String, Object>> result = new ArrayList<>();
 
@@ -62,9 +63,9 @@ public class ExcelReader implements SDAFileReader {
             // tworzenie wierszy z danymi - koniec
 
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            throw new FileConverterException("Nie znaleziono pliku", e);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new FileConverterException("Błąd podczas przetwarzania pliku", e);
         }
 
         return result;
